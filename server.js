@@ -51,6 +51,9 @@ app.configure(function() {
     app.use(passport.session());
 });
 
+app.set('views', __dirname + '/templates');
+app.set('view engine', 'html');
+
 app.post('/login', express.bodyParser(), function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
         if(err) { 
